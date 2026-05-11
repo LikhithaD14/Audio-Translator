@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceBridge - Audio Translator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <main class="app-container">
+        <header class="app-header">
+            <h1><i class="fa-solid fa-language"></i> VoiceBridge</h1>
+            <p>Real-time Audio Translator (EN ⇄ KN ⇄ HI)</p>
+        </header>
+
+        <div class="translator-grid">
+            <!-- Source Section -->
+            <div class="panel source-panel">
+                <div class="panel-header">
+                    <select id="source-lang" class="lang-select">
+                        <option value="en-US">English</option>
+                        <option value="kn-IN">Kannada</option>
+                        <option value="hi-IN">Hindi</option>
+                    </select>
+                </div>
+                <div class="panel-body">
+                    <textarea id="source-text" placeholder="Speak or type here..."></textarea>
+                </div>
+                <div class="panel-footer">
+                    <button id="record-btn" class="icon-btn tooltip" data-tooltip="Hold to Speak" aria-label="Start Recording">
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+                    <button id="clear-btn" class="icon-btn tooltip" data-tooltip="Clear Text" aria-label="Clear Text">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                    <div class="status-indicator">
+                        <span id="recording-status">Ready</span>
+                        <div id="recording-pulse" class="pulse-ring hidden"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Swap Button Section -->
+            <div class="swap-container">
+                <button id="swap-lang-btn" class="icon-btn swap-btn tooltip" data-tooltip="Swap Languages" aria-label="Swap Languages">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                </button>
+            </div>
+
+            <!-- Target Section -->
+            <div class="panel target-panel">
+                <div class="panel-header">
+                    <select id="target-lang" class="lang-select">
+                        <option value="kn-IN">Kannada</option>
+                        <option value="en-US">English</option>
+                        <option value="hi-IN">Hindi</option>
+                    </select>
+                </div>
+                <div class="panel-body">
+                    <textarea id="target-text" placeholder="Translation will appear here..." readonly></textarea>
+                </div>
+                <div class="panel-footer right-align">
+                    <div class="status-indicator">
+                        <span id="translating-status" class="hidden">Translating <i class="fa-solid fa-spinner fa-spin"></i></span>
+                    </div>
+                    <button id="speak-btn" class="icon-btn tooltip" data-tooltip="Listen to Translation" aria-label="Listen">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                    <button id="copy-btn" class="icon-btn tooltip" data-tooltip="Copy Text" aria-label="Copy">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
